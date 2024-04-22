@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Navigation</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .header {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: left;
+            width: 80%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+        }
+
+        .menu {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ffffff;
+            
+        }
+
+        .content {
+            flex: 3;
+            padding: 20px;
+        }
+
+        .accordion {
+            background-color: #fff; /* White background */
+            color: #333;
+            cursor: pointer;
+            padding: 18px;
+            margin: 0; /* Remove default margin */
+            width: 100%;
+            text-align: left;
+            border: 1px solid #ccc; /* Gray border */
+            border-radius: 0px 0px 0 0; /* Rounded corners only at the top */
+            outline: none;
+            transition: background-color 0.3s ease;
+            position: relative; /* To position the circle */
+            font-size: 16px; /* Adjust font size */
+        }
+
+        .accordion:first-child {
+            border-top-left-radius: 10px; /* Adjust the first button's border */
+            border-top-right-radius: 10px;
+        }
+
+        .accordion:last-child {
+            border-bottom-left-radius: 0; /* Adjust the last button's border */
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion:hover {
+            background-color: #f4f4f4; /* Light gray on hover */
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border: 1px solid #ccc; /* Gray border */
+            border-top: none; /* Remove top border */
+            border-radius: 0 0 0px 0px; /* Rounded corners only at the bottom */
+        }
+
+        .panel.show {
+            display: block;
+        }
+
+        .footer {
+            width: 100%; /* Stretch footer across the screen */
+            text-align: center;
+            padding: 12px 0;
+            background-color: #000000;
+            border-top: 1px solid #ccc;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style the hyperlinks without underlines */
+        .panel a {
+            text-decoration: none;
+        }
+
+        /* Styling for the blue tab */
+        .blue-tab {
+            background-color: #ffffff;
+            color: #fff;
+            padding: .5px 20px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+            cursor: default;
+        }
+
+        /* Styling for the Course Sections button */
+        .course-sections {
+            background-color: #2163c5; /* Blue background */
+            color: #fff;
+            padding: 12px 20px; /* Larger padding */
+            border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
+            margin-bottom: -1px; /* Remove extra space */
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            font-size: 16px; /* Adjust font size */
+            font-weight: bold; /* Make text bold */
+        }
+
+        /* Hover effect for Course Sections button */
+        .course-sections:hover {
+            background-color: #2163c5; /* Darker blue on hover */
+        }
+
+        /* Styling for the icon */
+        .icon {
+            float: right; /* Align the icon to the right */
+            transition: transform 0.3s ease; /* Smooth transition for rotation */
+        }
+
+        /* Rotate class for icon */
+        .rotate {
+            transform: rotate(180deg); /* Rotate the icon 180 degrees */
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <!-- Replace text with image -->
+    <img src="assets/logo2.png" alt="" width="120" height="60">
+</div>
+
+<!-- Blue tab -->
+<div class="blue-tab"></div>
+
+<!-- ********* HTML NAVIGATION BAR  CONTENT *********-->
+
+<div class="container">
+    <div class="menu">
+        <!-- Updated Course Sections button -->
+        <button class="course-sections">Course Sections</button>
+        <!-- End of Course Sections button -->
+        <button class="accordion">
+            Part 1
+            <span class="icon">&#9660;</span> <!-- Down cone icon -->
+        </button>
+        <div class="panel">
+            <p><a href="http://google.com" target="_blank">Subsection 1</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 2</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 3</a></p>
+        </div>
+        <button class="accordion">
+            Part 2
+            <span class="icon">&#9660;</span> <!-- Down cone icon -->
+        </button>
+        <div class="panel">
+            <p><a href="http://google.com" target="_blank">Subsection 1</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 2</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 3</a></p>
+        </div>
+        <button class="accordion">
+            Part 3
+            <span class="icon">&#9660;</span> <!-- Down cone icon -->
+        </button>
+        <div class="panel">
+            <p><a href="http://google.com" target="_blank">Subsection 1</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 2</a></p>
+            <p><a href="http://google.com" target="_blank">Subsection 3</a></p>
+        </div>        
+    </div>
+
+<!-- ********* HTML BODY CONTENT *********-->
+
+    <div class="content">
+        <h2>Content Area</h2>
+        <p>
+            <p>This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go.</p>
+            <p style="text-align: center;"><iframe title="YouTube video player" src="https://www.youtube.com/embed/k5TZYwimZzw?si=VIGrL_aN5NWKIPyq" width="560" height="315" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></p>
+            <p>This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go. This is where your content will go.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+</div>
+
+<div class="footer">
+    <img src="assets/social-icons.png" alt="" width="100" height="27">
+</div>
+
+<!-- ********* JAVA SCRIPT CONTENT *********-->
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var panels = document.getElementsByClassName("panel");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            var panel = this.nextElementSibling;
+            var isActive = panel.classList.contains('show');
+            closeAllPanels();
+            if (!isActive) {
+                panel.classList.toggle("show");
+                this.querySelector('.icon').classList.toggle("rotate"); // Toggle rotation class
+            }
+        });
+    }
+
+    function closeAllPanels() {
+        for (i = 0; i < panels.length; i++) {
+            panels[i].classList.remove("show");
+            acc[i].querySelector('.icon').classList.remove("rotate"); // Remove rotation class
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
